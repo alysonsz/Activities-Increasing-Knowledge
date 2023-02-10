@@ -1,2 +1,2 @@
-# Javascript-projects `rgb(R,G,B)`
+# Javascript-projects `#RRGGBB`
 ## Javascript language projects done during college with teammates

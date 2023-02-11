@@ -1,0 +1,77 @@
+<!-- 
+-----------------------
+IDENTIFICAÇÃO DA EQUIPE
+-----------------------
+Turma: 01
+1. Alyson Souza Carregosa
+2. João Rosa Conceição
+3. Mariana Carvalho Souza Dantas
+4. Unaldo Santos Vasconcelos Neto
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Trabalho 1 - PF 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+</head>
+
+<body>
+    <h1>COMP0393 - PROGRAMAÇÃO FUNCIONAL</h1>
+    <h2>TRABALHO 1 PARTE 2 - Texto decodificado</h2>
+    <!-- ALTERAR NÚMERO DA TURMA -->
+    <h3>Turma 01</h3>
+    <h3>Equipe F</h3>
+    <ol>
+        <!-- ALTERAR NOMES DOS INTEGRANTES DA EQUIPE -->
+        <li>Alyson Souza Carregosa</li>
+        <li>João Rosa Conceição</li>
+        <li>Mariana Carvalho Souza Dantas</li>
+        <li>Unaldo Santos Vasconcelos Neto</li>
+    </ol>
+    <hr>
+    <h2>Leitura do arquivo codificado</h2>
+    <input type="file" name="inputfile" id="inputfile" onchange="processa(this)">
+	<br>
+
+    <h2>Texto decodificado</h2>
+	<pre id="output"></pre>
+    
+    <script type="text/javascript">
+        
+        const processa = (elem) => {
+            const fr = new FileReader()
+            fr.readAsText(elem.files[0])
+            fr.onload = () => decodifica(fr.result)
+        }
+
+        const decodifica = (resultado) => {
+            
+            const alfacod = {
+'㊊':'A', 'ㄸ':'B','あ':'C', '㍾':'D','㈦':'F','☈':'G','ꕥ':'H','✱':'I', '⁂':'J', '※':'K', 'μ':'L', '֍':'M', '➢':'N',
+'▩':'O', '❒':'P', '◈':'Q', '∞':'R', '㊢':'E', '㊛':'S', '㊐':'T', 'ㄳ':'U', '₿':'V','₩':'W', '௹':'X', '㊙':'Y', '㊦':'Z',
+
+'θ':'Ò', '㈩':'Ó', '◖':'À', '⣿':'Á', '⠺':'È', '╔':'É', '▷':'Ì', '⇶':'Í', '⌆':'Ú', '☛':'Ù', '𓁏':'Â', '≣':'Ê', '↹':'Î',
+'↯':'Ô', '𓁙':'Û', 
+
+'%':'a', '#':'b', '†':'c', '@':'d', '!':'e', '§':'f', '♠':'g','Σ':'h', '♟':'í', '✉':'ó',
+ 'λ':'i', '✎':'j', '৳':'k', '₴':'l', '¤':'m', '₱':'n', '৲':'o', '៛':'p', '₵':'q','≋':'r', '^':'ç', '°':'õ',
+ '₪':'s', '¢':'t', '€':'u','•':'v', '╨':'w', '·':'x', 'Š':'y', '˘':'z', '②':'á',
+
+ '\n': '\n', '|':'.','_':',', '+':'ã', '®':' ','-':'-',
+ 
+ '♔':'é','0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9',
+ '♞':'Ã','☢':'ú','☎':'Õ','"':'"','✯':'[','☠':']','𓇻':'Ñ', '①':'ñ', '⓿':'ô','ψ':'ê'
+            }
+           
+            decodificar = resultado => resultado.split('').map(indice => alfacod[indice]).join('')
+
+            const resultado2 = decodificar(resultado)
+            document.getElementById('output').textContent = resultado2
+        }
+	</script>
+
+</body>
+
+</html>

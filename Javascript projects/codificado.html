@@ -1,0 +1,80 @@
+<!-- 
+-----------------------
+IDENTIFICAÇÃO DA EQUIPE
+-----------------------
+Turma: 01
+1. Alyson Souza Carregosa
+2. João Rosa Conceição
+3. Mariana Carvalho Souza Dantas
+4. Unaldo Santos Vasconcelos Neto
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Trabalho 1 - PF 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+</head>
+
+<body>
+    <h1>COMP0393 - PROGRAMAÇÃO FUNCIONAL</h1>
+    <h2>TRABALHO 1 PARTE 1 - Texto codificado</h2>
+    <!-- ALTERAR NÚMERO DA TURMA -->
+    <h3>Turma 01</h3>
+    <h3>Equipe F</h3>
+    <ol>
+        <!-- ALTERAR NOMES DOS INTEGRANTES DA EQUIPE -->
+        <li>Alyson Souza Carregosa</li>
+        <li>João Rosa Conceição</li>
+        <li>Mariana Carvalho Souza Dantas</li>
+        <li>Unaldo Santos Vasconcelos Neto</li>
+    </ol>
+    <hr>
+    <h2>Leitura do arquivo original</h2>
+    <input type="file" name="inputfile" id="inputfile" onchange="processa(this)">
+	<br>
+
+    <h2>Texto codificado</h2>
+	<pre id="output"></pre>
+    
+    <script type="text/javascript">
+        
+        const processa = (elem) => {
+            const fr = new FileReader()
+            fr.readAsText(elem.files[0])
+            fr.onload = () => codifica(fr.result)
+        }
+
+        const codifica = (texto) => {
+            
+
+            const alfabeto = {
+'A':'㊊', 'B':'ㄸ', 'C':'あ', 'D':'㍾', 'F':'㈦', 'G':'☈', 'H':'ꕥ', 'I':'✱', 'J':'⁂', 'K':'※', 'L':'μ', 'M':'֍', 'N':'➢',
+'O':'▩', 'P':'❒', 'Q':'◈', 'R':'∞', 'E':'㊢', 'S':'㊛', 'T':'㊐', 'U':'ㄳ', 'V':'₿', 'W':'₩', 'X':'௹', 'Y':'㊙', 'Z':'㊦',
+
+'Ò':'θ', 'Ó':'㈩', 'À':'◖', 'Á':'⣿', 'È':'⠺', 'É':'╔', 'Ì':'▷', 'Í':'⇶', 'Ú':'⌆', 'Ù':'☛', 'Â':'𓁏', 'Ê':'≣', 'Î':'↹',
+'Ô':'↯', 'Û':'𓁙', 
+
+'a': '%', 'b': '#', 'c': '†', 'd': '@', 'e': '!', 'f': '§', 'g': '♠', 'h': 'Σ', 'í': '♟', 'ó': '✉', 'i': 'λ', 'j': '✎',
+'k': '৳', 'l': '₴', 'm': '¤', 'n': '₱', 'o': '৲', 'p': '៛', 'q': '₵', 'r': '≋', 'ç': '^', 'õ': '°', 's': '₪', 't': '¢',
+'u': '€', 'v': '•', 'w': '╨', 'x': '·', 'y': 'Š', 'z': '˘', 'á':'②',
+
+'\n': '\n', '.': '|', ',': '_', ' ': '®','-':'-',
+
+'0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9',
+'Ã':'♞','ú':'☢','Õ':'☎','"':'"','[':'✯',']':'☠','Ñ':'𓇻', 'ñ':'①', 'ã': '+', 'é': '♔', 'ê':'ψ', 'ô':'⓿'
+}
+
+            codificar = texto => texto.split('').map(indice => alfabeto[indice]).join('')
+
+
+            const resultado = codificar(texto)
+            document.getElementById('output').textContent = resultado  
+        }
+
+	</script>
+
+</body>
+
+</html>
